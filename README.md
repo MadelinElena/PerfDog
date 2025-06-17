@@ -20,7 +20,7 @@ Cada prueba es **independiente**, válida y sigue buenas prácticas de automatiz
 
 A continuación se muestra la evidencia de que todos los tests fueron ejecutados exitosamente:
 
-![Evidencia de pruebas](FotoDeTestCompletos.PNG)
+![Evidencia de pruebas](FotoDeTestCompletos)
 ---
 
 ## Tecnologías y herramientas utilizadas
