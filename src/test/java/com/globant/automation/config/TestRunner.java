@@ -9,7 +9,6 @@ import org.testng.annotations.BeforeSuite;
 public class TestRunner {
 
     private static final String PROPERTIES_FILE = "src/test/resources/config.properties";
-    
     private static final Properties PROPERTIES = new Properties();
 
     private static String baseUrl;
