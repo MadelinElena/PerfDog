@@ -17,6 +17,10 @@ Automatizar las siguientes funcionalidades expuestas por la API REST:
 
 Cada prueba es **independiente**, válida y sigue buenas prácticas de automatización de APIs.
 
+
+A continuación se muestra la evidencia de que todos los tests fueron ejecutados exitosamente:
+
+![Evidencia de pruebas](FotoDeTestCompletos.PNG)
 ---
 
 ## Tecnologías y herramientas utilizadas
@@ -49,6 +53,7 @@ Las respuestas JSON se transforman en objetos Java mediante DTOs (Data Transfer 
 
 
 PerfDogApiTests/
+
 ├── pom.xml                           ← Configuración de dependencias con Maven
 ├── README.md                         ← Documentación del proyecto
 └── src/
@@ -107,10 +112,6 @@ GetPetByIdTest	Consultar mascota por ID
 CreateOrderTest	Crear orden de compra
 LogoutUserTest	Logout del usuario
 
-
-A continuación se muestra la evidencia de que todos los tests fueron ejecutados exitosamente:
-
-![Evidencia de pruebas](FotoDeTestCompletos.PNG)
 
 
 Desarrollado por Madelin Alzate como parte de un reto de automatización de pruebas con API REST.
