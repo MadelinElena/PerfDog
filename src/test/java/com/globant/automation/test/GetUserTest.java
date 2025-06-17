@@ -1,29 +1,22 @@
 package com.globant.automation.test;
 
-import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.path.json.JsonPath;
 
 import org.testng.annotations.Test;
+
 import static org.testng.Assert.assertEquals;
 
 import com.globant.automation.config.TestRunner;
+import com.globant.automation.request.RequestBuilder;
+import com.globant.automation.model.users.UserDTO;
 
 public class GetUserTest extends TestRunner {
 
-    @Test(testName = "Validate user found by username")
-    public void userFoundAssertion() {
-        String username = "Madelin";
 
-        Response response = RestAssured
-            .given()
-                .baseUri(getBaseUrl())
-                .contentType(ContentType.JSON)
-                .filter(new RequestLoggingFilter())
-            .when()
-                .get("/user/" + username);
+    @Test(testName = "Validate user found by username using JsonPath")
+    public void userFoundAssertion2() {
+        Response response = RequestBuilder.getRequest(getBaseUrl(), "/user/Madelin");
 
         JsonPath jsonPath = response.jsonPath();
 
@@ -39,5 +32,21 @@ public class GetUserTest extends TestRunner {
         assertEquals(lastName, "QA", "Last name does not match");
         assertEquals(responseUsername, "Madelin", "Username does not match");
         assertEquals(email, "madelin@gmail.com", "Email does not match");
+    }
+
+
+    @Test(testName = "Validate user found by username with DTO")
+    public void userFoundAssertion() {
+        Response response = RequestBuilder.getRequest(getBaseUrl(), "/user/Madelin");
+
+        // Deserializa el JSON directamente al modelo UserDTO
+        UserDTO userDTO = response.as(UserDTO.class);
+
+        assertEquals(response.getStatusCode(), 200, "Unexpected status code");
+        assertEquals(userDTO.getId(), 1234, "Expected ID does not match actual value");
+        assertEquals(userDTO.getFirstName(), "Madelin", "First name does not match");
+        assertEquals(userDTO.getLastName(), "QA", "Last name does not match");
+        assertEquals(userDTO.getUsername(), "Madelin", "Username does not match");
+        assertEquals(userDTO.getEmail(), "madelin@gmail.com", "Email does not match");
     }
 }
