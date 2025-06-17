@@ -110,6 +110,7 @@ LogoutUserTest	Logout del usuario
 
 A continuación se muestra la evidencia de que todos los tests fueron ejecutados exitosamente:
 
-![Tests completos](FotoDeTestCompletos.PNG)
+![Evidencia de pruebas](FotoDeTestCompletos.PNG)
+
 
 Desarrollado por Madelin Alzate como parte de un reto de automatización de pruebas con API REST.
